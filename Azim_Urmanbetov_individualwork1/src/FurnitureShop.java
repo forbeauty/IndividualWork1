@@ -14,18 +14,15 @@ public class FurnitureShop{
 
     private String shopName;
 
-    // Block A:
     private List<StockItem> stockItems;
     private List<Material> materials;
 
-    // Block B:
     private Map<Integer, StockItem> stockById;
     private Map<Category, List<StockItem>> stockByCategory;
     private Map<Integer, Customer> customers;
     private Map<Integer, Seller> sellers;
     private Map<Integer, FurnitureOrder> ordersById;
 
-    // Block D
     private Queue<FurnitureOrder> pendingOrders;
 
     private int nextOrderId;
@@ -46,7 +43,6 @@ public class FurnitureShop{
             stockByCategory.put(category, new ArrayList<>());
         }
 
-        // Start materials
         materials.add(new Material("Wood", 30.00));
         materials.add(new Material("Leather", 80.00));
         materials.add(new Material("Metal", 20.00));
@@ -56,8 +52,6 @@ public class FurnitureShop{
     public String getShopName(){
         return shopName;
     }
-
-    // ===== Furniture and stock (CRUD) =====
 
     public void addFurniture(Furniture furniture, int quantity) throws ShopException{
         if(furniture == null){
@@ -73,7 +67,6 @@ public class FurnitureShop{
 
         StockItem item = new StockItem(furniture, quantity);
 
-        // add to the list AND to all indexes
         stockItems.add(item);
         stockById.put(furniture.getFurID(), item);
         stockByCategory.get(furniture.getCategory()).add(item);
@@ -264,7 +257,6 @@ public class FurnitureShop{
         return materials.size();
     }
 
-    // index starts from 0, returns null if the index is wrong
     public Material getMaterial(int index){
         if(index < 0 || index >= materials.size()){
             return null;

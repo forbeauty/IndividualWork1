@@ -111,7 +111,6 @@ public class FurnitureOrder{
         return Integer.hashCode(orderID);
     }
 
-    // One line for lists
     public void displayShort(){
         String type = "STANDARD";
         if(express){

@@ -172,7 +172,6 @@ public class CustomerMenu{
             return;
         }
 
-        // Count what is already in the cart (all materials of this product)
         int inCart = cart.getQuantityForFurniture(id);
 
         if(inCart + quantity > item.getQuantity()){
@@ -186,7 +185,6 @@ public class CustomerMenu{
                 + " (" + material.getName() + ") added to the cart.");
     }
 
-    // Asks for a cart item number. Returns -1 if it is not valid.
     private int readCartIndex(){
         if(cart.isEmpty()){
             System.out.println("Your cart is empty.");
@@ -228,7 +226,7 @@ public class CustomerMenu{
             return;
         }
 
-        cartItem.setQuantity(newQuantity); // material stays the same
+        cartItem.setQuantity(newQuantity);
         System.out.println("Quantity updated.");
     }
 
@@ -242,7 +240,6 @@ public class CustomerMenu{
         System.out.println("Item removed from the cart.");
     }
 
-    // The order is not completed here. It goes to the queue, a seller processes it later.
     private void placeOrder() throws ShopException{
         System.out.println("===== PLACE ORDER =====");
 
